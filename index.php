@@ -6,7 +6,7 @@
 
 
 ?>
-<?php include('./includes/headers.php'); ?>
+<?php include('./includes/header.php'); ?>
 
 
 

@@ -20,6 +20,11 @@ if (!empty($_POST['submit'])) {
       $query->prepare($sql);
       $query->bindvalue(':pseudo',$pseudo,PDO::PARAM_STR);
       $query->execute();
+      $pseudo_exist = $query->fetch();
+
+        if (!empty($pseudo_exist)) {
+          $error['pseudo'] = $verif;
+        }
     }
 
 
@@ -31,6 +36,11 @@ if (!empty($_POST['submit'])) {
       $query->prepare($sql);
       $query->bindvalue(':email',$email,PDO::PARAM_STR);
       $query->execute();
+      $email_exist = $query->fetch();
+
+        if(!empty($email_exist)) {
+          $error['email'] = $verif;
+        }
     }
 
   if ($password == $password_repeat) {
@@ -65,7 +75,7 @@ if (!empty($_POST['submit'])) {
 
 
 ?>
-<?php include('./includes/headers.php'); ?>
+<?php include('./includes/header.php'); ?>
 
 
 <form class="container" action="subscribe.php" method="POST">
@@ -85,7 +95,7 @@ if (!empty($_POST['submit'])) {
     <label for="password_repeat">Repeat password :</label>
     <input type="password" name="password_repeat" value="">
   </div>
-  <input type="submit" name="submit" value="">
+  <input type="submit" name="submit" value="Clique ici K1LU4K">
 </form>
 
 
