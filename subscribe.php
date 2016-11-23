@@ -17,7 +17,7 @@ if (!empty($_POST['submit'])) {
       $error['pseudo'] = $verif;
     } else {
       $sql = "SELECT * FROM users WHERE pseudo = :pseudo";
-      $query->prepare($sql);
+      $query = $pdo->prepare($sql);
       $query->bindvalue(':pseudo',$pseudo,PDO::PARAM_STR);
       $query->execute();
       $pseudo_exist = $query->fetch();
@@ -33,7 +33,7 @@ if (!empty($_POST['submit'])) {
       $error['email'] = $verif;
     } else {
       $sql = "SELECT * FROM users WHERE email = :email";
-      $query->prepare($sql);
+      $query = $pdo->prepare($sql);
       $query->bindvalue(':email',$email,PDO::PARAM_STR);
       $query->execute();
       $email_exist = $query->fetch();
@@ -57,7 +57,7 @@ if (!empty($_POST['submit'])) {
     $hash = password_hash($password,PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users(pseudo,email,password) VALUES (:pseudo, :email, :password)";
-    $query->prepare($sql);
+    $query = $pdo->prepare($sql);
     $query->bindvalue(':pseudo',$pseudo,PDO::PARAM_STR);
     $query->bindvalue(':email',$email,PDO::PARAM_STR);
     $query->bindvalue(':password',$hash,PDO::PARAM_STR);
