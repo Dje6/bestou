@@ -65,15 +65,7 @@ if (!empty($_POST['submit'])) {
 
     $success = true;
   }
-
-
-
 }
-
-
-
-
-
 ?>
 <?php include('./includes/header.php'); ?>
 
@@ -81,14 +73,17 @@ if (!empty($_POST['submit'])) {
 <form class="container" action="subscribe.php" method="POST">
   <div class="form-group">
     <label for="pseudo">Pseudo :</label>
+    <span class="alert"><?php if(!empty($error['pseudo'])) { echo $error['pseudo']; } ?></span>
     <input type="text" name="pseudo" value="">
   </div>
   <div class="form-group">
     <label for="email">Email :</label>
+    <span class="alert"><?php if(!empty($error['email'])) { echo $error['email']; } ?></span>
     <input type="email" name="email" value="">
   </div>
   <div class="form-group">
     <label for="password">Password :</label>
+    <span class="alert"><?php if(!empty($error['password'])) { echo $error['password']; } ?></span>
     <input type="password" name="password" value="">
   </div>
   <div class="form-group">
