@@ -23,7 +23,7 @@ if (!empty($_POST['submit'])) {
       $pseudo_exist = $query->fetch();
 
         if (!empty($pseudo_exist)) {
-          $error['pseudo'] = $verif;
+          $error['pseudo'] = "Ce pseudo existe déjà";
         }
     }
 
@@ -39,7 +39,7 @@ if (!empty($_POST['submit'])) {
       $email_exist = $query->fetch();
 
         if(!empty($email_exist)) {
-          $error['email'] = $verif;
+          $error['email'] = "Cet email existe déjà PD !";
         }
     }
 
